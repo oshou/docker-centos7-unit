@@ -9,7 +9,8 @@ services:
 
   httpd_modphp56:
     container_name: 'httpd_modphp56'
-    image: oshou/docker-centos7-httpd24-modphp56:latest
+    image:
+      - oshou/docker-centos7-httpd24-modphp56:latest
     volumes_from:
       - data-volume
     ports:
