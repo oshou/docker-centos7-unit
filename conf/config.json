@@ -1,0 +1,15 @@
+{
+    "listeners": {
+        "*:8300": {
+            "application": "sample_php"
+        }
+    },
+    "applications": {
+        "sample_php": {
+            "type": "php",
+            "workers": 20,
+            "root": "/var/www/php",
+            "index": "index.php"
+        }
+    }
+}
