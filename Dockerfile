@@ -38,20 +38,23 @@ RUN  yum install -y \
      yum clean all
 
 # PHP setting
-RUN  mkdir -p /var/www/php && chmod -R 755 /var/www/php
-COPY ./conf/config.json /etc/unit/config.json
-COPY ./conf/start.sh /etc/unit/start.sh
 COPY ./conf/php.ini /etc/php.ini
-COPY ./conf/index.php /var/www/php/index.php
+COPY ./conf/index.php /var/www/html/index.php
+COPY ./conf/config.json /etc/unit/config.json
+COPY ./conf/startup.sh /etc/unit/startup.sh
 
-RUN  chmod -R 755 /var/www/php && \
-     chmod 755 /etc/unit/config.json && \
-     chmod 755 /etc/unit/start.sh && \
-     chmod 755 /etc/php.ini && \
-     chmod 755 /etc/unit/start.sh
+# RUN  chmod 755 /etc/php.ini && \
+#      chmod 755 /etc/unit/config.json && \
+#      chmod 755 /etc/unit/startup.sh
+
+# document root
+RUN groupadd --gid 1000 www-data && \
+    useradd www-data --uid 1000 --gid 1000 && \
+    chmod -R 755 /var/www && \
+    chown -R www-data:www-data /var/www
 
 # Listen port
 EXPOSE 8300
 
 # Startup
-CMD ["/etc/unit/start.sh"]
+CMD /etc/unit/startup.sh

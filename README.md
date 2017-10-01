@@ -13,5 +13,5 @@
 
 # 起動方法
 - $ docker pull oshou/docker-centos7-unit:latest
-- $ docker run --name unit -dit -p 8300:8300 --privileged unit /sbin/init
+- $ docker run --name unit -dit -p 8300:8300 --privileged oshou/docker-centos7-unit /sbin/init
 - $ docker exec -it unit /bin/bash
