@@ -8,7 +8,7 @@
         "sample_php": {
             "type": "php",
             "workers": 20,
-            "root": "/var/www/php",
+            "root": "/var/www/html",
             "index": "index.php"
         }
     }

@@ -42,10 +42,8 @@ COPY ./conf/php.ini /etc/php.ini
 COPY ./conf/index.php /var/www/html/index.php
 COPY ./conf/config.json /etc/unit/config.json
 COPY ./conf/startup.sh /etc/unit/startup.sh
-
-# RUN  chmod 755 /etc/php.ini && \
-#      chmod 755 /etc/unit/config.json && \
-#      chmod 755 /etc/unit/startup.sh
+RUN  chmod 755 /etc/unit/config.json && \
+     chmod 755 /etc/unit/startup.sh
 
 # document root
 RUN groupadd --gid 1000 www-data && \
