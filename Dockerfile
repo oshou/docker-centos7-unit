@@ -42,7 +42,7 @@ RUN  yum install -y \
      yum clean all
 
 # nginx
-# COPY ./conf/proxy_app.conf /etc/nginx/conf.d/proxy_app.conf
+COPY ./conf/vhost-unit.conf /etc/nginx/conf.d/vhost-unit.conf
 
 # PHP
 COPY ./conf/php.ini /etc/php.ini
