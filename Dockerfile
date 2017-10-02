@@ -42,6 +42,7 @@ RUN  yum install -y \
      yum clean all
 
 # nginx
+RUN rm /etc/nginx/conf.d/default.conf
 COPY ./conf/vhost-unit.conf /etc/nginx/conf.d/vhost-unit.conf
 
 # PHP
