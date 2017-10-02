@@ -16,17 +16,17 @@ RUN  yum install -y epel-release && \
      rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
 RUN  yum install -y \
-        # Tools
+        # tools
         libcurl \
         net-tools && \
-     yum install -y --enablerepo=nginx \
+     yum install -y --enablerepo=unit \
         # nginx
         nginx && \
      yum install -y --enablerepo=unit \
-        # Nginx Unit
+        # nginx unit
         unit && \
      yum install -y --enablerepo=remi-php54 \
-        # PHP
+        # php
         php \
         php-devel \
         php-embedded \
@@ -43,6 +43,7 @@ RUN  yum install -y \
 
 # nginx
 RUN rm /etc/nginx/conf.d/default.conf
+COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./conf/vhost-unit.conf /etc/nginx/conf.d/vhost-unit.conf
 
 # PHP
@@ -63,4 +64,4 @@ RUN groupadd --gid 1000 www-data && \
 EXPOSE 8300
 
 # Startup
-CMD /etc/unit/startup.sh
+CMD nginx && unitd
