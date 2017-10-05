@@ -55,7 +55,7 @@ COPY ./conf/backend-unit.conf /etc/nginx/conf.d/backend-unit.conf
 
 # PHP
 COPY ./conf/php.ini /etc/php.ini
-COPY ./conf/index.php /var/www/html/index.php
+COPY ./conf/info.php /var/www/html/info.php
 COPY ./conf/config.json /etc/unit/config.json
 COPY ./conf/startup.sh /etc/unit/startup.sh
 RUN  chmod 755 /etc/unit/config.json && \
