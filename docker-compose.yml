@@ -5,7 +5,7 @@ services:
     image: busybox
     volumes: 
       - ./data/www:/var/www
-      - ./logs/unitd/unitd.log:/var/log/unitd.log
+      - ./logs/unitd:/var/log
   unit:
     container_name: 'unit'
     image: oshou/docker-centos7-unit:latest
