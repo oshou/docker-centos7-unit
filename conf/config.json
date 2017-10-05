@@ -7,7 +7,7 @@
     "applications": {
         "sample_php": {
             "type": "php",
-            "workers": 20,
+            "workers": 30,
             "root": "/var/www/html",
             "index": "index.php"
         }
