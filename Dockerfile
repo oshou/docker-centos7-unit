@@ -17,7 +17,7 @@ COPY conf/nginx.repo /etc/yum.repos.d/nginx.repo
 COPY conf/unit.repo /etc/yum.repos.d/unit.repo
      # [repo]] epel
 RUN  yum install -y epel-release \
-     # [repo]] remim
+     # [repo]] remi
      && rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm \
      # [repo]] city-fan
      && rpm -Uvh http://www.city-fan.org/ftp/contrib/yum-repo/city-fan.org-release-1-13.rhel7.noarch.rpm \
@@ -53,7 +53,7 @@ RUN rm -rf /etc/nginx/conf.d/*
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./conf/backend-unit.conf /etc/nginx/conf.d/backend-unit.conf
 
-# PHP
+# php(unit)
 COPY ./conf/php.ini /etc/php.ini
 COPY ./conf/info.php /var/www/html/info.php
 COPY ./conf/config.json /etc/unit/config.json
